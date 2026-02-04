@@ -35,9 +35,10 @@ function useAutoFetch(url, refreshMs) {
 
 /* ---------- UI ---------- */
 export default function App() {
-  const prices = useAutoFetch("/api/prices", 10_000);
-  const signals = useAutoFetch("/api/signals", 10_000);
-  const analysis = useAutoFetch("/api/analysis", 60_000);
+  const prices = { data: [], status: "ok" };
+  const signals = useAutoFetch("/api/signals", 10_000); // if exists
+  const analysis = { data: [], status: "ok" };
+
 
   return (
     <div style={styles.page}>
